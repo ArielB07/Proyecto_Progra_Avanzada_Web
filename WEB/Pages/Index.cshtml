@@ -1,0 +1,111 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+   
+}
+
+<section>
+    <div class="container py-6">
+        <div class="row flex-lg-row-reverse align-items-center g-5">
+            <div class="col-10 mx-auto col-sm-8 col-lg-6">
+                <img src="~/img/redes.png" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">Bienvenido</h2>
+                    </div>
+                </div>
+
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">
+                           A nuestra plataforma en línea, donde podrás gestionar y guardar tus páginas web favoritas de manera sencilla y rápida. Mantén todos tus enlaces importantes organizados en un solo lugar, accesibles con tan solo un clic, y olvídate de perder tiempo buscándolos nuevamente. ¡Explora, guarda y accede a tus sitios preferidos en un instante!
+                        </p>
+
+                    </div>
+                </div>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+                    <h5 style="font-weight:bold; color:red">Inicia Sesion para tener acceso a todos nuestros servicios </h5>
+                </div>
+                    <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+
+                        <a class="btn btn-outline-secondary px-4" asp-page="/Cuenta/Login" role="button">Ingresar</a>
+                        <a class="btn btn-primary px-4 me-md-2" asp-page="/Cuenta/Registrarse" role="button">Registrarme</a>
+                    </div>
+
+                }
+
+        
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="lc-block">
+                    <h2 editable="inline" class="mb-0 display-3 fw-bolder"><b>Como Funciona</b></h2>
+                    <p editable="inline">
+                        Te mostramos como usar nuestra web en tres sencillos pasos
+
+                        <br> id ligula malesuada placerat sit amet quis enim.
+
+                    </p>
+                </div>
+                <!-- /lc-block -->
+            </div>
+        </div>
+        <div class="row pt-4 pb-4 g-0">
+            <div class="col-md-4 text-center">
+                <div class="lc-block p-4">
+                    <div>
+                       
+                        <h5 class="mb-4 mt-3 h2" editable="inline">
+                            <strong>Paso 1</strong>
+                        </h5>
+                    </div>
+                    <div editable="rich">
+                        <p>Registrate e inicia sesion para que tengas una cuenta personal </p>
+                    </div>
+                </div>
+                <!-- /lc-block -->
+            </div>
+            <div class="col-md-4 text-center shadow">
+                <div class="lc-block p-4">
+                    <div>
+                       
+                        <h5 class="mb-4 mt-3 h2" " editable="inline">
+                            <strong>Paso 2</strong>
+                        </h5>
+                    </div>
+                    <div editable="rich">
+                        <p>Guarda los enlaces que mas utilizas en nuestra web, los puedes guardar por categoria para tener una mejor organizacion</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="lc-block p-4">
+                    <div>
+                        
+                        <h5 class="mb-4 mt-3 h2" " editable="inline">
+                            <strong>Paso 3</strong>
+                        </h5>
+                    </div>
+                    <div editable="rich">
+                        <p>Ahora simplemente ahorrate tiempo y disfruta de tus paginas favoritas al alcance de un clic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</section>

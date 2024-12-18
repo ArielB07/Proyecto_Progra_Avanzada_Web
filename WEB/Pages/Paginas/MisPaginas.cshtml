@@ -1,0 +1,42 @@
+﻿@page
+@model WEB.Pages.Paginas.MisPaginasModel
+@{
+    var idUsuario = new Guid();
+    @if (User.Identity.IsAuthenticated)
+    {
+        idUsuario = Abstracciones.Modelos.Autenticacion.ClaimsPrincipalExtensions.GetIdUsuario(User);
+    }
+
+}
+<h1>Aca encontraras todas tus paginas para que las tengas al alcance de un clic</h1>
+
+<div class="add-container">
+    <input type="text" placeholder="Agregar url de pagina web" id="url-pagina" class="add-input">
+    <span>
+        <select id="categoria-pagina" class="select-container">
+            @foreach (var categoria in @Model.categorias)
+            {
+                <option value="@categoria.Id.ToString()">@Html.DisplayFor(modelItem => categoria.Nombre)</option>
+            }
+        </select>
+    </span>
+    <button class="agregar-button" onclick="agregarPagina('@idUsuario')">
+        <i class="fa fa-plus"></i>
+    </button>
+</div>
+
+<main class="video-grid">
+    @{
+        @foreach (var pagina in @Model.paginas)
+        {
+            <button class="video-card" onclick="openNewTab('@Html.DisplayFor(modelItem => pagina.Url)')">
+                <img src="@Html.DisplayFor(modelItem => pagina.Imagen)" alt="Thumbnail" class="thumbnail">
+                <h3 class="title">@Html.DisplayFor(modelItem => pagina.Nombre)</h3>
+                <p class="details">@Html.DisplayFor(modelItem => pagina.NombreCategoria)</p>
+            </button>
+        }
+    }
+</main>
+
+<script src="~/js/pagina.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

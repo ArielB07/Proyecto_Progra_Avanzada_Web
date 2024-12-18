@@ -1,0 +1,196 @@
+﻿@{
+    var idUsuario = new Guid();
+    @if (User.Identity.IsAuthenticated)
+    {
+        idUsuario = Abstracciones.Modelos.Autenticacion.ClaimsPrincipalExtensions.GetIdUsuario(User);
+    }
+ 
+}
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["El Ganadero"] - ProyectoVeterinaria</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/carrito.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/paginas.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/categorias.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProyectoVeterinaria.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <header>
+        @* NAV *@
+        <nav class="navbar navbar-expand-lg bg-primary px-lg-5" data-bs-theme="dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                       
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("2"))
+                        {
+                            <li class="nav-item">
+                                <a id="link-productos" class="nav-link" asp-area="" asp-page="/Paginas/MisPaginas">Paginas</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Categorias/MisCategorias">Categorias</a>
+                            </li>
+                        
+                           
+
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                           
+                            <li class="nav-item">
+                                <p class="nav-link text">
+                                    <i class="bi bi-person-video"> @User.Identity.Name</i>
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text" asp-page="/Cuenta/Out">Cerrar Sesión</a>
+                            </li>
+
+                        }
+
+                       
+                       
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text" asp-area="" asp-page="/Cuenta/Login">Iniciar Sesión</a>
+                            </li>
+                            <li><a class="nav-link text" asp-page="/Cuenta/Registrarse" role="button">Registrarme</a></li>
+                        }
+
+                    </ul>
+                   
+                </div>
+            </div>
+        </nav>
+
+        @* END *@
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+                <div class="col mb-3">
+                    <div class="lc-block mb-3">
+                        <a class="navbar-brand " href="">
+                            Logo
+                        </a>
+                    </div>
+                    <div class="lc-block">
+                        <div editable="rich">
+
+                            <p class="text-muted">© 2024 Veterinaria El Ganadero, Inc</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col offset-md-2 mb-3">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Inicio</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <style>
+                            .footer-links-list ul {
+                                padding-left: 0
+                            }
+
+                                .footer-links-list ul li {
+                                    margin-bottom: 15px;
+                                    list-style-type: none;
+                                    padding-left: 0
+                                }
+
+                            .footer-links-list a {
+                                text-decoration: none;
+                                color: var(--bs-body-color);
+                            }
+                        </style>
+                        <div editable="rich" class="footer-links-list">
+
+                            <ul>
+                                <li><a href="#">Primer Item</a> </li>
+                                <li><a href="#">Segundo Item</a></li>
+                                <li><a href="#">Tercer Item</a> </li>
+                                <li><a href="#">Cuarto Item</a> </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+                <div class="col mb-3">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Nosotros</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <div editable="rich" class="footer-links-list">
+
+                            <ul>
+                                <li><a href="#">Historia</a> </li>
+                                <li><a href="#">Trabaja con nosotros</a></li>
+                                <li><a href="#">Blog</a> </li>
+                                <li><a href="#">Notricias</a> </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+                <div class="col mb-3">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Redes</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <div editable="rich" class="footer-links-list">
+
+                            <ul>
+                                <li><a href="#">Primer Elemento</a> </li>
+                                <li><a href="#">Segundo Elemento</a> </li>
+                                <li><a href="#">Tercer Elemento</a> </li>
+                                <li><a href="#">Cuarto Elemento</a> </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

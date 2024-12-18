@@ -1,0 +1,130 @@
+﻿.add-container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto; /* Centrado horizontal */
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.agregar-button {
+    border: none;
+    margin-left: 10px;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+
+.select-container {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.select-container {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.add-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.add-button {
+    background-color: #f1f1f1;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #e2e2e2;
+}
+
+.add-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #555;
+}
+
+
+main.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 50px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 18px;
+    margin: 10px;
+    color: #333;
+}
+
+.details {
+    font-size: 14px;
+    margin: 0 10px 10px;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    .video-card {
+        box-shadow: none;
+    }
+
+    .video-card:hover {
+        transform: none;
+    }
+}

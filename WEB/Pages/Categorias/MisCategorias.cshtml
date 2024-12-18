@@ -1,0 +1,15 @@
+﻿@page
+@model WEB.Pages.Categorias.MisCategoriasModel
+@{
+    <a asp-page="./Agregar" class="btn btn-secondary">Agregar nueva categoria</a>
+}
+@{
+    @foreach (var categoria in @Model.categorias)
+    {
+        <div class="card">
+            <div class="container">
+                <h4><b>@Html.DisplayFor(modelItem => categoria.Nombre)</b></h4>
+            </div>
+        </div>
+    }
+}

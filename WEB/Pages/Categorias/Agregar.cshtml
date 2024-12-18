@@ -1,0 +1,31 @@
+﻿@page
+@model WEB.Pages.Categorias.AgregarModel
+@{
+}
+<main class="mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="shadow p-4 mb-5 bg-body rounded">
+                    <h2 class="text-center mb-4">Agregar categoria</h2>
+                    <form method="post">
+                        <fieldset>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" asp-for="categoria.Nombre" id="Nombre" class="form-control">
+                                <span asp-validation-for="categoria.Nombre" class="text-danger"></span>
+                            </div>
+                            <input type="submit" value="Agregar" class="btn btn-primary">
+                            </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
